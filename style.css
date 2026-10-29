@@ -1,0 +1,280 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+}
+
+.moitie-blanche {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    z-index: -1;
+    background-color: white;
+    background-image: radial-gradient(circle, black 10px, transparent 11px);
+    background-size: 60px 60px;
+}
+
+.moitie-noire {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    z-index: -1;
+    background-color: black;
+    background-image: radial-gradient(circle, white 10px, transparent 11px);
+    background-size: 60px 60px;
+}
+
+header,
+footer {
+    mix-blend-mode: difference;
+    padding: 20px;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 10;
+}
+
+header a,
+footer a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+header a:hover,
+footer a:hover {
+    text-decoration: underline;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Le fil d'Ariane "Discographie / Vol.II" au-dessus du contenu */
+main nav {
+    margin-left: max(20px, calc(25% - 250px));
+    margin-bottom: 20px;
+    mix-blend-mode: difference;
+}
+
+main nav a {
+    color: white;
+    font-weight: bold;
+}
+
+main {
+    padding: 80px 0 20px;
+}
+
+/* PAGE ALBUM */
+#album-vol-II {
+    display: flex;
+    justify-content: space-around;
+}
+
+#album-vol-II div:first-child {
+    position: relative;
+    flex: 0 1 500px;
+    margin: 0 20px;
+}
+
+#album-vol-II img {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    border: 6px solid transparent;
+}
+
+#album-vol-II div + div {
+    position: relative;
+    flex: 0 1 500px;
+    margin: 0 20px;
+    box-sizing: border-box;
+    background-color: white;
+    background-clip: padding-box;
+    color: black;
+    border: 6px solid transparent;
+    padding: 30px;
+}
+
+#album-vol-II div:first-child::after,
+#album-vol-II div + div::after {
+    content: "";
+    position: absolute;
+    border: 6px solid white;
+    mix-blend-mode: difference;
+    pointer-events: none;
+}
+
+#album-vol-II div:first-child::after {
+    inset: 0;
+}
+
+#album-vol-II div + div::after {
+    inset: -6px;
+}
+
+h1 {
+    margin-top: 0;
+    font-size: 64px;
+}
+
+h2 {
+    text-transform: uppercase;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+main iframe {
+    display: block;
+    border: 6px solid white;
+    width: 350px;
+    height: 654px;
+    max-width: 100%;
+    margin: 100px auto;
+}
+
+/* PAGE DISCOGRAPHIE */
+/* inversion des couleurs de fond */
+#page-discographie .moitie-blanche {
+    left: auto;
+    right: 0;
+}
+
+#page-discographie .moitie-noire {
+    right: auto;
+    left: 0;
+}
+
+#discographie {
+    padding: 0 20px;
+}
+
+#discographie ul {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#discographie li {
+    flex: 1;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+#discographie a {
+    position: relative;
+    display: block;
+    max-width: 400px;
+    margin: 0 auto;
+    color: white;
+    text-decoration: none;
+}
+
+#discographie img {
+    display: block;
+    box-sizing: border-box;
+    margin: 0 0 20px;
+    width: 100%;
+    border: 6px solid transparent;
+}
+
+#discographie li:last-child div {
+    background-color: white;
+    color: black;
+}
+
+#discographie div {
+    position: relative;
+    box-sizing: border-box;
+    background-color: black;
+    background-clip: padding-box;
+    color: white;
+    border: 6px solid transparent;
+    padding: 20px;
+}
+
+#discographie a::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border: 6px solid white;
+    mix-blend-mode: difference;
+    pointer-events: none;
+}
+
+#discographie div::after {
+    content: "";
+    position: absolute;
+    inset: -6px;
+    border: 6px solid white;
+    mix-blend-mode: difference;
+    pointer-events: none;
+}
+
+#discographie h1 {
+    margin: 0 0 40px;
+    font-size: 60px;
+    text-align: center;
+    text-transform: uppercase;
+    color: white;
+    mix-blend-mode: difference;
+}
+
+@media (max-width: 800px) {
+    main nav {
+        margin-left: max(20px, calc(50% - 250px));
+    }
+
+    #album-vol-II {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #album-vol-II div:first-child,
+    #album-vol-II div + div {
+        flex: none;
+        width: calc(100% - 40px);
+        max-width: 500px;
+    }
+
+    #album-vol-II div:first-child {
+        margin-bottom: 40px;
+    }
+
+    #discographie ul {
+        flex-direction: column;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+}
+
+footer{
+    margin-top: 100px;
+}
